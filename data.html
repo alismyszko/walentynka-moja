@@ -111,3 +111,18 @@
 
 </body>
 </html>
+
+<audio id="bgMusic" loop>
+  <source src="piosenka.mp3" type="audio/mpeg">
+</audio>
+
+<script>
+  const music = document.getElementById("bgMusic");
+
+  if (localStorage.getItem("musicPlaying") === "true") {
+    music.play();
+  }
+
+  music.onplay = () => localStorage.setItem("musicPlaying", "true");
+  music.onpause = () => localStorage.setItem("musicPlaying", "false");
+</script>
