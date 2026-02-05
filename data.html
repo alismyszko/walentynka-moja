@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+  <meta charset="UTF-8">
+  <title>Razem ❤️</title>
+  <link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet">
+</head>
+
+<body style="background-color: #ffe5ec; display: flex; justify-content: center; align-items: center; min-height: 100vh; text-align: center;">
+
+  <div>
+    <h1 style="font-family: 'Pacifico', cursive; font-size: clamp(26px, 5vw, 50px);">
+      Jesteśmy razem od ❤️
+    </h1>
+
+    <p id="timer" style="font-size: clamp(18px, 3vw, 28px); margin-top: 20px;"></p>
+  </div>
+
+  <script>
+    
+    const startDate = new Date("2025-09-25T15:45:00");
+
+    function updateTimer() {
+      const now = new Date();
+      let diff = now - startDate;
+
+      const seconds = Math.floor(diff / 1000) % 60;
+      const minutes = Math.floor(diff / (1000 * 60)) % 60;
+      const hours = Math.floor(diff / (1000 * 60 * 60)) % 24;
+      const days = Math.floor(diff / (1000 * 60 * 60 * 24));
+
+      document.getElementById("timer").innerHTML =
+        `❤️ ${days} dni<br>
+         ⏰ ${hours} godzin ${minutes} minut ${seconds} sekund`;
+    }
+
+    updateTimer();
+    setInterval(updateTimer, 1000);
+  </script>
+
+</body>
+</html>
